@@ -9,9 +9,18 @@ import (
 
 var _i18nDict map[string]map[string]string
 
-func Init(filepath string) (err error) {
-	_i18nDict, err = GetDictFromJsonFile(filepath)
-	return err
+func Init(filepath string, msgdicts ...map[string]map[string]string) {
+	_i18nDict = make(map[string]map[string]string)
+	for _, dict := range msgdicts {
+		for k, v := range dict {
+			_i18nDict[k] = v
+		}
+	}
+	if jsondicts, err := GetDictFromJsonFile(filepath); err == nil {
+		for k, v := range jsondicts {
+			_i18nDict[k] = v
+		}
+	}
 }
 
 //国际化消息文本
