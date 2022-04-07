@@ -1,0 +1,22 @@
+{
+    "user_unlogin": {
+        "en-US": "You must log in first",
+        "zh-CN": "需要先登录"
+    },
+    "user_noname": {
+        "en-US": "User name not exist",
+        "zh-CN": "用户名不存在"
+    },
+    "user_passsword_error": {
+        "en-US": "Password error",
+        "zh-CN": "密码错误"
+    },
+    "fcode_undefined": {
+        "en-US": "Function code not defined:%s",
+        "zh-CN": "功能码未定义:%s"
+    },
+    "comm_less_4byte": {
+        "en-US": "The length of communication message shall be at least 4 bytes",
+        "zh-CN": "通讯报文长度至少4字节"
+    }
+}
