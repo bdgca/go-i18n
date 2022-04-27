@@ -7,10 +7,10 @@ import (
 	"os"
 )
 
-var _i18nDict map[string]map[string]string
+var _i18nDict = make(map[string]map[string]string)
 
 func Init(filepath string, msgdicts ...map[string]map[string]string) {
-	_i18nDict = make(map[string]map[string]string)
+	//_i18nDict = make(map[string]map[string]string)
 	for _, dict := range msgdicts {
 		for k, v := range dict {
 			_i18nDict[k] = v
