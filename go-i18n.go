@@ -2,7 +2,6 @@ package i18n
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"os"
 )
@@ -36,19 +35,11 @@ func I18n(msgcode, language string, msgdicts ...map[string]map[string]string) st
 	}
 	ecode, ok := _i18nDict[msgcode]
 	if !ok {
-		ecode = map[string]string{
-			"zh-CN": "未定义的文本字典",
-			"en-US": "Undefined text dictionary",
-			"ru":    "неопределённый текстовый словарь", //俄语
-			"es":    "Diccionario de texto indefinido",  //西班牙语
-			"fr":    "Dictionnaire de texte non défini", //法语
-		}
-		//logs.Alert("[I18n]Undefined message code: %s", msgcode)
+		return msgcode
 	}
 	msg, ok := ecode[language]
 	if !ok {
-		msg = fmt.Sprintf("[I18n]Undefined languige type:%s", language)
-		//logs.Alert(msg)
+		return msgcode
 	}
 	return msg
 }
