@@ -3,7 +3,7 @@ package i18n
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 )
 
@@ -23,11 +23,11 @@ func Init(filepath string, msgdicts ...map[string]map[string]string) {
 	}
 }
 
-//国际化消息文本
-//输入:msgcode string:消息码字符串
-//language string:zh-CN,en-US等
-//msgdict map[string]map[string]string:字典
-//输出:string: 消息文本
+// 国际化消息文本
+// 输入:msgcode string:消息码字符串
+// language string:zh-CN,en-US等
+// msgdict map[string]map[string]string:字典
+// 输出:string: 消息文本
 func I18n(msgcode, language string) string {
 	ecode, ok := _i18nDict[msgcode]
 	if !ok {
@@ -46,7 +46,7 @@ func I18n(msgcode, language string) string {
 //	return
 //}
 
-//从json文件获取字典数据
+// 从json文件获取字典数据
 func getDictFromJsonFile(filepath string) (map[string]map[string]string, error) {
 	if len(filepath) == 0 {
 		return nil, fmt.Errorf("file path is empty")
@@ -56,7 +56,7 @@ func getDictFromJsonFile(filepath string) (map[string]map[string]string, error) 
 		return nil, err
 	}
 	defer file.Close()
-	data, err := ioutil.ReadAll(file)
+	data, err := io.ReadAll(file)
 	if err != nil {
 		return nil, err
 	}

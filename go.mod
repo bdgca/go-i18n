@@ -1,3 +1,3 @@
-module github.com/bkzy-wangjp/go-i18n
+module github.com/bdgca/go-i18n
 
-go 1.17
+go 1.22
